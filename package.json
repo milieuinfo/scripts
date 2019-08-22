@@ -1,0 +1,16 @@
+{
+  "name": "didm",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "exec-sh": "^0.3.2",
+    "execa": "^2.0.4",
+    "fast-glob": "^3.0.4",
+    "replace-in-file": "^4.1.3"
+  }
+}
