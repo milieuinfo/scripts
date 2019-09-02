@@ -3,8 +3,7 @@ const exec = util.promisify(require('child_process').exec);
 
 async function execute(command) {
     try {
-        const { stdout, stderr } = await exec(command, { cwd: '/Users/philippe/Documents/localdev/'});
-        console.log(stdout);
+        await exec(command, { cwd: workingDir });
     } catch (err) {
         console.log(err);
     }
