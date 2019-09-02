@@ -6,13 +6,12 @@ const options = {
     countMatches: true,
     dry: false
 };
-async function run() {
+
+(async () => {
     try {
         const results = await replace(options);
         console.log('Replacement results: ', results);
     } catch (error) {
         console.error('Error occured: ', error);
     }
-}
-
-run();
+});
