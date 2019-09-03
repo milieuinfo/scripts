@@ -6,4 +6,6 @@
 A new branch is created for every webcomponent. Its name is set via `branchName`.
 On this branch, `npm update vl-ui-util` is executed, followed by `npm install`.
 
-TODO: Add automated pull request
+Finally, a pull request is made in the correspoding repository.
+
+You will have to change the `config.json.template` to `config.json` and add your own Github Access Token.
