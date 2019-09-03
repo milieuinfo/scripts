@@ -5,7 +5,7 @@ const git = require('../utils/gitUtils');
 const npm = require('../utils/npmUtils');
 const gh = require('../utils/githubUtils');
 
-const branchName = 'test';
+const branchName = 'maintenance';
 
 async function run() {
     let dirs = await folderUtils.getDirs();

@@ -1,11 +1,15 @@
 const sh = require('../utils/shellUtils');
 
 async function updateUtil() {
-    sh.execute('npm update vl-ui-util');
+    sh.exec('npm update vl-ui-util', (stdout) => {
+        console.log(stdout);
+    });
 }
 
 async function install() {
-    sh.execute('npm install');
+    sh.exec('npm install', (stdout) => {
+        console.log(stdout);
+    });
 }
 
 module.exports = { updateUtil, install }
