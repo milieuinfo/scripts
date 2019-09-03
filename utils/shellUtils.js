@@ -1,12 +1,13 @@
-const util = require('util');
-const exec = util.promisify(require('child_process').exec);
+const exe = require('child_process').exec;
 
-async function execute(command) {
-    try {
-        await exec(command, { cwd: workingDir });
-    } catch (err) {
-        console.log(err);
-    }
+function exec(cmd, cb) {
+    exe(cmd, (err, stdout) => {
+        if(err) {
+            console.error(err);
+            return;
+        }
+        cb(stdout);
+    });
 }
 
-module.exports = { execute }
+module.exports = { exec }
