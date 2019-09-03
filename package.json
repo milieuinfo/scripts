@@ -14,7 +14,7 @@
     "replace-in-file": "^4.1.3"
   },
   "devDependencies": {
-    "@octokit/rest": "16.28.7",
+    "octonode": "^0.9.5",
     "simple-git": "1.126.0"
   }
 }

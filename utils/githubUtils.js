@@ -1,31 +1,25 @@
-const config = require('../config.json');
-const Octokit = require('@octokit/rest');
+const github = require('octonode');
+const conf = require('../config.json');
 
-const octokit = new Octokit({
-    auth: config.githubAccessToken,
-    log: console
-});
+async function createPr(repo, title, body, branch) {
+    console.log('Creating PR ...');
+    const client = github.client(conf.githubAccessToken);
+    const repository = client.repo(repo);
 
-async function createPullRequest(repo, title, head) {
-    try {
-        await octokit.pulls.create({
-            owner: 'milieuinfo',
-            repo: repo,
-            title: title,
-            head: head,
-            base: 'master'
-        });
-    } catch (err) {
-        console.error('Pull request failed! ' + err);
-    }
+    repository.pr({
+        "title": title,
+        "body": body,
+        "head": branch,
+        "base": "master"
+    }, function (err, body) {
+        if (err) {
+            console.error(err.body.errors);
+            process.exit(1);
+        } else {
+            console.log(body);
+        }
+    });
+    console.log('PR created!');
 }
 
-async function getAllRepos() {
-    try {
-        return await octokit.repos.listForOrg({ org: 'milieuinfo' });
-    } catch (err) {
-        console.error(err);
-    }
-}
-
-module.exports = { createPullRequest, getAllRepos }
+module.exports = { createPr }
