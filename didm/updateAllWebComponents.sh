@@ -1,6 +1,7 @@
 #! /bin/bash
 
 source ../utils/envUtils.sh
+source ../utils/gitUtils.sh
 
 checkIfHomebrewIsInstalled
 checkIfRubyIsInstalled
@@ -19,6 +20,7 @@ for dir in $DIRS; do
     && git master \
     && git stash \
     && git pull \
+    && checkIfMaintenanceBranchExists $BRANCHNAME \
     && git checkout -b $BRANCHNAME \
     && npm update vl-ui-util \
     && npm install \
