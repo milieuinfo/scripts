@@ -1,5 +1,7 @@
 #! /bin/bash
 
+source ../utils/gitUtils.sh
+
 WORKINGDIR="/Users/philippe/Documents/localdev/"
 BRANCHNAME="maintenance"
 
