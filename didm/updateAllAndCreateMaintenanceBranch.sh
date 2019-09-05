@@ -1,6 +1,5 @@
 #! /bin/bash
 
-
 WORKINGDIR="/Users/philippe/Documents/localdev/"
 BRANCHNAME="maintenance"
 
