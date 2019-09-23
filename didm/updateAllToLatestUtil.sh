@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/usr/bin/env bash
 
 source ../utils/envUtils.sh
 source ../utils/gitUtils.sh

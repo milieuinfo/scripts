@@ -1,6 +1,6 @@
-#! /bin/bash
+#!/usr/bin/env bash
 
-function checkIfMaintenanceBranchExists() {
+checkIfMaintenanceBranchExists() {
     # List branches, filter on branchname and trim whitespace
     BRANCHES=`git branch | grep $1 | tr -d '[:space:]'`
 

@@ -1,9 +1,9 @@
-#! /bin/bash
+#!/usr/bin/env bash
 
 source ../utils/gitUtils.sh
 
 WORKINGDIR="/Users/philippe/Documents/localdev/"
-BRANCHNAME="UIG-218"
+BRANCHNAME="govflanders"
 
 DIRS=`ls $WORKINGDIR | grep "webcomponent-vl-ui-*"`
 
