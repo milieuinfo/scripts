@@ -1,13 +1,17 @@
 #!/usr/bin/env bash
 
-source ../utils/envUtils.sh
-source ../utils/gitUtils.sh
+CWD=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
-checkIfHomebrewIsInstalled
+source $CWD/../utils/envUtils.sh
+source $CWD/../utils/gitUtils.sh
+
 checkIfRubyIsInstalled
+checkIfHomebrewIsInstalled
 checkIfHubIsInstalled
 
-WORKINGDIR="/Users/philippe/Documents/localdev/"
+read -e -p 'Waar bevinden zich de webcomponenten? (vb. /Users/philippe/localdev)' path
+
+WORKINGDIR=$path
 BRANCHNAME="maintenance"
 
 DIRS=`ls $WORKINGDIR | grep "webcomponent-vl-ui-*"`

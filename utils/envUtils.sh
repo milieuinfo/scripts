@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 checkIfHomebrewIsInstalled() {
-    echo "Checking if Homebrew is installed ..."
     which -s brew
     if [[ $? != 0 ]] ; then
         echo "Homebrew is not installed, please hang on while we install it for you ..."
