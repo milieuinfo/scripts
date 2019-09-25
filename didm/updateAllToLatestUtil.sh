@@ -23,18 +23,18 @@ for dir in $DIRS; do
     && echo "====================================================" \
     && echo " Working on $dir" \
     && echo "====================================================" \
-    && git master
-#    && git stash \
-#    && git pull \
-#    && checkIfMaintenanceBranchExists $BRANCHNAME \
-#    && git checkout -b $BRANCHNAME \
-    checkBreaking $choice 
-#    && npm install \ 
-#    && git add -A \
-#    && git commit -m "Update vl-ui-util" 
-#    && git push --set-upstream origin $BRANCHNAME \
-#    && hub pull-request --assign coemans --labels maintenance --no-edit \
-    echo "====================================================" \
+    && git master \
+    && git stash \
+    && git pull \
+    && checkIfMaintenanceBranchExists $BRANCHNAME \
+    && git checkout -b $BRANCHNAME \
+    && checkBreaking $choice \
+    && npm install \ 
+    && git add -A \
+    && git commit -m "Update vl-ui-util" 
+    && git push --set-upstream origin $BRANCHNAME \
+    && hub pull-request --assign coemans --labels maintenance --no-edit \
+    && echo "====================================================" \
     && echo " Done for $dir" \
     && echo "====================================================" \
     && popd
