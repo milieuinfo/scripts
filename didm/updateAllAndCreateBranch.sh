@@ -10,7 +10,7 @@ read -e "Wat is de naam van de branch die moet aangemaakt worden? " branch
 WORKINGDIR=$path
 BRANCHNAME=$branch
 
-DIRS=`ls $WORKINGDIR | grep "webcomponent-vl-ui-*"`
+DIRS=$(ls $WORKINGDIR | grep "webcomponent-vl-ui-*")
 
 for dir in $DIRS; do
     pushd $WORKINGDIR$dir \

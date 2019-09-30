@@ -16,7 +16,7 @@ read -p "Mag vl-ui-util naar de laatste major worden geupdate? (Y/n) " choice
 WORKINGDIR=$path
 BRANCHNAME="maintenance"
 
-DIRS=`ls $WORKINGDIR | grep "webcomponent-vl-ui-*"`
+DIRS=$(ls $WORKINGDIR | grep "webcomponent-vl-ui-*")
 
 for dir in $DIRS; do
     pushd $WORKINGDIR$dir \
@@ -29,7 +29,7 @@ for dir in $DIRS; do
     && checkIfMaintenanceBranchExists $BRANCHNAME \
     && git checkout -b $BRANCHNAME \
     && checkBreaking $choice \
-    && npm install \ 
+    && npm install \
     && git add -A \
     && git commit -m "Update vl-ui-util" \
     && git push --set-upstream origin $BRANCHNAME \
