@@ -31,7 +31,7 @@ for dir in $DIRS; do
     && checkBreaking $choice \
     && npm install \ 
     && git add -A \
-    && git commit -m "Update vl-ui-util" 
+    && git commit -m "Update vl-ui-util" \
     && git push --set-upstream origin $BRANCHNAME \
     && hub pull-request --assign coemans --labels maintenance --no-edit \
     && echo "====================================================" \
