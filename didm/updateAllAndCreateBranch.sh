@@ -1,9 +1,14 @@
 #!/usr/bin/env bash
 
+CWD=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd ) 
+
 source ../utils/gitUtils.sh
 
-WORKINGDIR="/Users/philippe/Documents/localdev/"
-BRANCHNAME="govflanders"
+read -e -p 'Waar bevinden zich de webcomponenten? (vb. /Users/philippe/localdev) ' path
+read -e "Wat is de naam van de branch die moet aangemaakt worden? " branch
+
+WORKINGDIR=$path
+BRANCHNAME=$branch
 
 DIRS=`ls $WORKINGDIR | grep "webcomponent-vl-ui-*"`
 

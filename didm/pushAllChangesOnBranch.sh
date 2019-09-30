@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+CWD=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+
 source ../utils/envUtils.sh
 source ../utils/gitUtils.sh
 
@@ -7,12 +9,17 @@ checkIfHomebrewIsInstalled
 checkIfRubyIsInstalled
 checkIfHubIsInstalled
 
-WORKINGDIR="/Users/philippe/Documents/localdev/"
-BRANCHNAME="UIG-218"
-ASSIGNEE="cambiph"
-LABELS="maintenance"
+read -e -p 'Waar bevinden zich de webcomponenten? (vb. /Users/philippe/localdev) ' path
+read -p "Wat is de naam van de branch? " branchName
+read -p "Aan wie moet de pull request toegewezen worden? " assignee
+read -p "Wat is het label van de pull request? " label
 
-DIRS=`ls $WORKINGDIR | grep "webcomponent-vl-ui-*"`
+WORKINGDIR=$path
+BRANCHNAME=$branchName
+ASSIGNEE=$assignee
+LABELS=$label
+
+DIRS=$(ls $WORKINGDIR | grep "webcomponent-vl-ui-*")
 
 for dir in $DIRS; do
     pushd $WORKINGDIR$dir \
