@@ -2,7 +2,7 @@
 
 checkIfMaintenanceBranchExists() {
     # List branches, filter on branchname and trim whitespace
-    BRANCHES=`git branch | grep $1 | tr -d '[:space:]'`
+    BRANCHES=$(git branch | grep $1 | tr -d '[:space:]')
 
     if [[ $BRANCHES == $1 ]] ; then
         echo "Branch detected"
