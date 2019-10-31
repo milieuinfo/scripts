@@ -8,7 +8,7 @@ checkIfMaintenanceBranchExists() {
         echo "Branch detected"
         git checkout $1 \
         && git stash \
-        && git master \
+        && git checkout master \
         && git branch --delete $1
     else
         echo "Branch not detected"
