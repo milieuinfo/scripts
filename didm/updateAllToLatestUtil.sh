@@ -23,7 +23,7 @@ for dir in $DIRS; do
     && echo "====================================================" \
     && echo " Working on $dir" \
     && echo "====================================================" \
-    && git master \
+    && git checkout master \
     && git stash \
     && git pull \
     && checkIfMaintenanceBranchExists $BRANCHNAME \
