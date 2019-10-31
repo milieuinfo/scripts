@@ -30,7 +30,7 @@ for dir in $DIRS; do
     && npm install \
     && npm explore vl-ui-util -- npm run update:readme \
     && git add -A \
-    && git commit -m "Update Readme" \
+    && git commit -m "update README.md" \
     && git push --set-upstream origin $BRANCHNAME \
     && hub pull-request --assign coemans --labels maintenance --no-edit \
     && echo "====================================================" \
