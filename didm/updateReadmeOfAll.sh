@@ -27,6 +27,7 @@ for dir in $DIRS; do
     && git pull \
     && checkIfMaintenanceBranchExists $BRANCHNAME \
     && git checkout -b $BRANCHNAME \
+    && npm update \
     && npm install \
     && npm explore vl-ui-util -- npm run update:readme \
     && git add -A \
