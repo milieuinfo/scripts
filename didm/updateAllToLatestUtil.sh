@@ -33,7 +33,7 @@ for dir in $DIRS; do
     && git add -A \
     && git commit -m "Update vl-ui-util" \
     && git push --set-upstream origin $BRANCHNAME \
-    && hub pull-request --assign coemans --labels maintenance --no-edit \
+    && hub pull-request --assign coemans --labels chore --no-edit \
     && echo "====================================================" \
     && echo " Done for $dir" \
     && echo "====================================================" \
