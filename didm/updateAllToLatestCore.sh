@@ -11,7 +11,7 @@ checkIfHomebrewIsInstalled
 checkIfHubIsInstalled
 
 read -e -p 'Waar bevinden zich de webcomponenten? (vb. /Users/philippe/localdev) ' path
-read -p "Mag vl-ui-util naar de laatste major worden geupdate? (Y/n) " choice
+read -p "Mag vl-ui-core naar de laatste major worden geupdate? (Y/n) " choice
 
 WORKINGDIR=$path
 BRANCHNAME="maintenance"
@@ -28,10 +28,13 @@ for dir in $DIRS; do
     && git pull \
     && checkIfMaintenanceBranchExists $BRANCHNAME \
     && git checkout -b $BRANCHNAME \
-    && checkBreaking $choice "vl-ui-util" \
+    && npm uninstall vl-ui-util --save-dev \
+    && npm install vl-ui-util@5.0.10 --save-dev --save-exact \
+    && git pull \
+    && checkBreaking $choice "vl-ui-core" \
     && npm install \
     && git add -A \
-    && git commit -m "Update vl-ui-util" \
+    && git commit -m "Update vl-ui-core" \
     && git push --set-upstream origin $BRANCHNAME \
     && hub pull-request --assign coemans --labels chore --no-edit \
     && echo "====================================================" \
